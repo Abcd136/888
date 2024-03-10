@@ -55,5 +55,53 @@
                                         window.location.href = "https://abcd136.github.io/abcd/";             
                                     }, 3000);         }    
                                          </script> 
+                                    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=`, initial-scale=1.0">
+        <title>原生留言板案例</title>
+    </head>
+    <body>
+        <div class="cont">
+            <textarea id="text" cols="30" rows="10"></textarea>
+            <button id="but">提交</button>
+            <div class="list">
+            </div>
+        </div>
+    </body>
+    <script>
+        // 选中元素
+        var text = document.querySelector('#text');
+        var but = document.querySelector('#but');
+        var list = document.querySelector('.list');
+    
+        // 点击按钮时执行的函数
+        but.onclick = function () {
+            if (!text.value) {
+                console.log('内容为空');
+                return;
+            }
+    
+            // 创建新的<div>元素
+            var div = document.createElement('div');
+            div.className = 'listliu';
+    
+            // 在<div>元素中添加<p>和<a>元素
+            div.innerHTML = '<p>' + text.value + '</p><a class="del" href="javascript:;">删除</a>';
+    
+            // 将<div>元素添加到列表中
+            list.appendChild(div);
+    
+            // 清空文本框内容
+            text.value = '';
+    
+            // 点击<a>元素时执行的函数，用于删除对应的<div>元素
+            div.children[1].onclick = function () {
+                div.remove();
+            }
+        }
+    </script>
+    
+    </html>
                                          </body> 
                                          </html>
